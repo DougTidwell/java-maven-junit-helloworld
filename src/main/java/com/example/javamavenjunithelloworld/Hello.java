@@ -1,6 +1,7 @@
 package com.example.javamavenjunithelloworld;
 
 import java.io.PrintStream;
+import edu.umd.cs.findbugs.annotations.CheckForNull;
 
 /**
  * Simple class that says "Hello!".
@@ -20,6 +21,10 @@ public class Hello {
      * @throws IllegalArgumentException Thrown when times is larger than 20 or a negative number.
      */
     public void setTimes(int times) {
+        String f = getStringOrNull();
+        System.out.println(f);
+        "".equals(f);
+        
         if (times < 0 || times > MAXIMUM_AMOUNT_OF_TIMES) {
             throw new IllegalArgumentException(String.format(
                     "Parameter «times» should be a number between 1 and %d inclusive.",
@@ -40,4 +45,8 @@ public class Hello {
         }
     }
 
+    @CheckForNull
+    public String getStringOrNull(){
+        return null;
+    }
 }

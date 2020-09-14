@@ -56,12 +56,32 @@
       <artifactId>mockito-junit-jupiter</artifactId>
       <version>${mockito.version}</version>
     </dependency>
+    <dependency>
+      <groupId>com.github.spotbugs</groupId>
+      <artifactId>spotbugs-annotations</artifactId>
+      <version>4.1.2</version>
+      <scope>provided</scope>
+    </dependency>
   </dependencies>
 
   <build>
     <plugins>
-
+             
       <plugin>
+          <groupId>com.github.spotbugs</groupId>
+          <artifactId>spotbugs-maven-plugin</artifactId>
+          <version>4.0.4</version>
+          <configuration>
+              <!--  Do not define excludeFilterFile here as it will force a plugin to provide a file -->
+              <!--  Instead we configure this in a profile -->
+              <xmlOutput>true</xmlOutput>
+              <spotbugsXmlOutput>false</spotbugsXmlOutput>
+              <effort>${spotbugs.effort}</effort>
+              <threshold>${spotbugs.threshold}</threshold>
+          </configuration>
+      </plugin>             
+
+         <plugin>
         <!-- Configures the compiler. -->
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>

@@ -11,7 +11,7 @@ node {
    stage('Build') {
       // Run the maven build
       withEnv(["MVN_HOME=$mvnHome"]) {
-          sh '"$MVN_HOME/bin/mvn" install'
+         sh '"$MVN_HOME/bin/mvn" --show-version --batch-mode --errors --no-transfer-progress -Dmaven.test.failure.ignore=true -Dspotbugs.failOnError=false  clean verify com.github.spotbugs:spotbugs-maven-plugin:4.0.4:spotbugs'
       }
    }
    stage('Results') {

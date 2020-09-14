@@ -23,7 +23,7 @@ public class HelloApp {
             try {
                 times = Integer.parseInt(args[0]);
             } catch (NumberFormatException e) {
-                System.err.println("I don't understand the parameter you passed me. What in the world is it? " +
+                System.err.println("I don't understand the parameter you passed me. Get that stuff together, come back and see me. " +
                         "Parameter was: [" + args[0] + "]");
                 System.exit(EXIT_STATUS_PARAMETER_NOT_UNDERSTOOD);
             }
