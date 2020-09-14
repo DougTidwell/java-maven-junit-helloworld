@@ -12,7 +12,7 @@ node {
       // Run the maven build
       withEnv(["MVN_HOME=$mvnHome"]) {
 //          sh '"$MVN_HOME/bin/mvn" -Dspotbugs.failOnError=false install'
-         sh '"$MVN_HOME/bin/mvn" --show-version --batch-mode --errors --no-transfer-progress -Dmaven.test.failure.ignore=true -Dspotbugs.failOnError=false  check verify spotbugs:spotbugs'
+         sh '"$MVN_HOME/bin/mvn" --show-version --batch-mode --errors --no-transfer-progress -Dmaven.test.failure.ignore=true -Dspotbugs.failOnError=false  check verify com.github.spotbugs:spotbugs'
 //         sh '"$MVN_HOME/bin/mvn" --show-version --batch-mode --errors --no-transfer-progress -Dmaven.test.failure.ignore=true -Dspotbugs.failOnError=false  clean verify install'
       }
    }
