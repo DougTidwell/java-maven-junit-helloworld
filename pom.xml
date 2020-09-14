@@ -56,51 +56,30 @@
       <artifactId>mockito-junit-jupiter</artifactId>
       <version>${mockito.version}</version>
     </dependency>
+    <dependency>
+      <groupId>com.github.spotbugs</groupId>
+      <artifactId>spotbugs-annotations</artifactId>
+      <version>4.1.2</version>
+      <scope>provided</scope>
+    </dependency>
   </dependencies>
 
   <build>
     <plugins>
              
-                <plugin>
-                    <groupId>com.github.spotbugs</groupId>
-                    <artifactId>spotbugs-maven-plugin</artifactId>
-                    <version>3.1.12.2</version>
-                    <executions>
-                        <execution>
-                            <id>spotbugs</id>
-                            <goals>
-                                <goal>check</goal>
-                            </goals>
-                            <phase>verify</phase>
-                            <configuration>
-                                <!--  Do not define excludeFilterFile here as it will force a plugin to provide a file -->
-                                <!--  Instead we configure this in a profile -->
-                                <xmlOutput>true</xmlOutput>
-                                <spotbugsXmlOutput>false</spotbugsXmlOutput>
-                                <effort>${spotbugs.effort}</effort>
-                                <threshold>${spotbugs.threshold}</threshold>
-                            </configuration>
-                        </execution>
-                    </executions>
-                </plugin>
-             
-<!--      <plugin>
-        <groupId>com.github.spotbugs</groupId>
-        <artifactId>spotbugs-maven-plugin</artifactId>
-        <version>4.0.4</version>
-        <executions>
-          <execution>
-            <id>spotbugs</id>
-            <phase>test</phase>
-            <goals>
-              <goal>spotbugs</goal>
-            </goals>
-          </execution>
-        </executions>
-        <configuration>
-          <failOnError>false</<failOnError>
-        </configuration>
-      </plugin> --> 
+      <plugin>
+          <groupId>com.github.spotbugs</groupId>
+          <artifactId>spotbugs-maven-plugin</artifactId>
+          <version>4.0.4</version>
+          <configuration>
+              <!--  Do not define excludeFilterFile here as it will force a plugin to provide a file -->
+              <!--  Instead we configure this in a profile -->
+              <xmlOutput>true</xmlOutput>
+              <spotbugsXmlOutput>false</spotbugsXmlOutput>
+              <effort>${spotbugs.effort}</effort>
+              <threshold>${spotbugs.threshold}</threshold>
+          </configuration>
+      </plugin>             
 
          <plugin>
         <!-- Configures the compiler. -->
