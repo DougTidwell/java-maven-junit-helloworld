@@ -22,7 +22,6 @@ public class Hello {
      */
     public void setTimes(int times) {
         String f = getStringOrNull();
-        System.out.println(f);
         "".equals(f);
         
         if (times < 0 || times > MAXIMUM_AMOUNT_OF_TIMES) {
